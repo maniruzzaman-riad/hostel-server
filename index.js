@@ -45,6 +45,13 @@ async function run() {
             res.send(result)
         })
 
+        app.post('/users', async (req, res) => {
+            const newMeal = req.body;
+            // console.log(newProduct);
+            const result = await productCollection.insertOne(newMeal);
+            res.send(result);
+        })
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
